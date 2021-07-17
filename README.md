@@ -13,6 +13,7 @@ This is a real-world example of an authenticated request. Which of the 25 cookie
 ## curl2min command
 
 Running curl2min is a matter of appending the curl command as arguments:
+
 ```python3 curl2min.py curl 'https://REDACTED/store/myaccount/profile.jsp?selpage=MY+PROFILE' -H 'User-Agent: REDACTED' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' --compressed -H 'Referer: REDACTED' -H 'Connection: keep-alive' -H 'Cookie: o59a9A4Gx=REDACTED; _gcl_au=REDACTED; _ga_3NXP3C8S9V=REDACTED; _ga=REDACTED; _fbp=REDACTED; kampyleUserSession=REDACTED; kampyleSessionPageCounter=REDACTED; kampyleUserSessionsCount=REDACTED; _pin_unauth=REDACTED; _pin_unauth=REDACTED; mab_usps=REDACTED; uspsstaticwebpop=REDACTED; TLTSID=REDACTED; reg-entreg=REDACTED; EntRegName=REDACTED; EntRegPrefs=REDACTED; JSESSIONID=REDACTED; psSessionExpiry=REDACTED; NSC_jou-blbnbj-tupsf-xbt9-mc=REDACTED; EntReg=REDACTED; EntRegEX=REDACTED; TINTCYALF=REDACTED; DYN_USER_ID=REDACTED; DYN_USER_CONFIRM=6REDACTED' -H 'Upgrade-Insecure-Requests: 1' -H 'Pragma: no-cache' -H 'Cache-Control: no-cache' -H 'TE: Trailers'```
 
 ## Minimized curl command
@@ -30,12 +31,12 @@ Testing for identical results...
 Testing with minimum arguments...
 Testing with leave one out...
 Required: ['-H', 'User-Agent: REDACTED']
-Not required: ['-H', 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8']
+Not required: ['-H', 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;...
 Not required: ['-H', 'Accept-Language: en-US,en;q=0.5']
 Not required: ['--compressed']
 Not required: ['-H', 'Referer: REDACTED']
 Not required: ['-H', 'Connection: keep-alive']
-Required: ['-H', 'Cookie: o59a9A4Gx=REDACTED; _gcl_au=REDACTED; _ga_3NXP3C8S9V=REDACTED; _ga=REDACTED; _fbp=REDACTED; kampyleUserSession=REDACTED; kampyleSessionPageCounter=REDACTED; kampyleUserSessionsCount=REDACTED; _pin_unauth=REDACTED; _pin_unauth=REDACTED; mab_usps=REDACTED; uspsstaticwebpop=REDACTED; TLTSID=REDACTED; reg-entreg=REDACTED; EntRegName=REDACTED; EntRegPrefs=REDACTED; JSESSIONID=REDACTED; psSessionExpiry=REDACTED; NSC_jou-blbnbj-tupsf-xbt9-mc=REDACTED; EntReg=REDACTED; EntRegEX=REDACTED; TINTCYALF=REDACTED; DYN_USER_ID=REDACTED; DYN_USER_CONFIRM=6REDACTED']
+Required: ['-H', 'Cookie: o59a9A4Gx=REDACTED; _gcl_au=REDACTED; _ga_3NXP3C8S9V=REDACTED; ...
 Not required: ['-H', 'Upgrade-Insecure-Requests: 1']
 Not required: ['-H', 'Pragma: no-cache']
 Not required: ['-H', 'Cache-Control: no-cache']
