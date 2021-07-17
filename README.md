@@ -2,6 +2,10 @@
 
 Want to reproduce a request from the browser with the most concise `curl` command? "Copy as cURL" in your browser and paste it as arguments to `curl2min`. The minimal `curl` statement will be output to stdout.
 
+# How
+
+`curl2min` makes repeated requests to determine which curl parameters have no impact on the response status code and content. This makes it sensitive to request parameters that become invalid (e.g. expiring session cookies) and sites with request-independent dynamic content. The main algorithm is a leave-one-out strategy which assumes that curl parameters do not interact in sophisticated ways (e.g. a site that responds different if both header A and B are absent but responds the same if only header A or header B are absent).
+
 # Example
 
 This is a real-world example of an authenticated request. Which of the 25 cookies and 10 other headers are required for a successful response? It turns out only two of the cookies and one of the other headers are required.
@@ -99,12 +103,27 @@ This guards against an initially failing curl command. Specify what the status c
 
 # Troubleshooting
 
-## Status was XXX not the expected 200.
+## Status was XXX not the expected 200
 
 * Is a XXX status code expected for the original curl? If yes, specify the status code using `--expected-status=302`.
 * Is a XXX status code unexpected? It may be that a cookie value is no longer valid. Try again with a fresh curl captured from your browser.
 
-## Status codes vary across identical requests.
+## Status codes vary across identical requests
 
 A key assumption is that identical curl requests will have identical responses. It could be that between the first and second calls a cookie value became invalid. Try again with a fresh curl captured from your browser.
 
+## Response content varies across identical requests
+
+A key assumption is that identical curl requests will have identical responses. It could be that between the first and second calls a cookie value became invalid. Try again with a fresh curl captured from your browser.
+
+## Leave one out assumption for headers failed
+
+If leaving out header A still works, and leaving out header B still works, then a key assumption that leaving out header A and B will still work. This failure message implies that assumption does not hold for the original curl. It could be that between calls a cookie value became invalid. Try again with a fresh curl captured from your browser.
+
+## Cookie disassemble and reassemble assumption failed
+
+Is suggests a logic failure in the script. Much more likely is that between calls a cookie value became invalid. Try again with a fresh curl captured from your browser.
+
+## Leave one out assumption for cookies failed
+
+If leaving out cookie A still works, and leaving out cookie B still works, then a key assumption that leaving out cookie A and B will still work. This failure message implies that assumption does not hold for the original curl. It could be that between calls a cookie value became invalid. Try again with a fresh curl captured from your browser.
