@@ -8,24 +8,18 @@ This is a real-world example of an authenticated request. Which of the 25 cookie
 
 ## Starting curl command
 
-```bash
-curl 'https://REDACTED/store/myaccount/profile.jsp?selpage=MY+PROFILE' -H 'User-Agent: REDACTED' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' --compressed -H 'Referer: REDACTED' -H 'Connection: keep-alive' -H 'Cookie: o59a9A4Gx=REDACTED; _gcl_au=REDACTED; _ga_3NXP3C8S9V=REDACTED; _ga=REDACTED; _fbp=REDACTED; kampyleUserSession=REDACTED; kampyleSessionPageCounter=REDACTED; kampyleUserSessionsCount=REDACTED; _pin_unauth=REDACTED; _pin_unauth=REDACTED; mab_usps=REDACTED; uspsstaticwebpop=REDACTED; TLTSID=REDACTED; reg-entreg=REDACTED; EntRegName=REDACTED; EntRegPrefs=REDACTED; JSESSIONID=REDACTED; psSessionExpiry=REDACTED; NSC_jou-blbnbj-tupsf-xbt9-mc=REDACTED; EntReg=REDACTED; EntRegEX=REDACTED; TINTCYALF=REDACTED; DYN_USER_ID=REDACTED; DYN_USER_CONFIRM=6REDACTED' -H 'Upgrade-Insecure-Requests: 1' -H 'Pragma: no-cache' -H 'Cache-Control: no-cache' -H 'TE: Trailers'
-```
+`curl 'https://REDACTED/store/myaccount/profile.jsp?selpage=MY+PROFILE' -H 'User-Agent: REDACTED' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' --compressed -H 'Referer: REDACTED' -H 'Connection: keep-alive' -H 'Cookie: o59a9A4Gx=REDACTED; _gcl_au=REDACTED; _ga_3NXP3C8S9V=REDACTED; _ga=REDACTED; _fbp=REDACTED; kampyleUserSession=REDACTED; kampyleSessionPageCounter=REDACTED; kampyleUserSessionsCount=REDACTED; _pin_unauth=REDACTED; _pin_unauth=REDACTED; mab_usps=REDACTED; uspsstaticwebpop=REDACTED; TLTSID=REDACTED; reg-entreg=REDACTED; EntRegName=REDACTED; EntRegPrefs=REDACTED; JSESSIONID=REDACTED; psSessionExpiry=REDACTED; NSC_jou-blbnbj-tupsf-xbt9-mc=REDACTED; EntReg=REDACTED; EntRegEX=REDACTED; TINTCYALF=REDACTED; DYN_USER_ID=REDACTED; DYN_USER_CONFIRM=6REDACTED' -H 'Upgrade-Insecure-Requests: 1' -H 'Pragma: no-cache' -H 'Cache-Control: no-cache' -H 'TE: Trailers'`
 
 ## curl2min command
 
 Running curl2min is a matter of appending the curl command as arguments:
-```bash
-python3 curl2min.py curl 'https://REDACTED/store/myaccount/profile.jsp?selpage=MY+PROFILE' -H 'User-Agent: REDACTED' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' --compressed -H 'Referer: REDACTED' -H 'Connection: keep-alive' -H 'Cookie: o59a9A4Gx=REDACTED; _gcl_au=REDACTED; _ga_3NXP3C8S9V=REDACTED; _ga=REDACTED; _fbp=REDACTED; kampyleUserSession=REDACTED; kampyleSessionPageCounter=REDACTED; kampyleUserSessionsCount=REDACTED; _pin_unauth=REDACTED; _pin_unauth=REDACTED; mab_usps=REDACTED; uspsstaticwebpop=REDACTED; TLTSID=REDACTED; reg-entreg=REDACTED; EntRegName=REDACTED; EntRegPrefs=REDACTED; JSESSIONID=REDACTED; psSessionExpiry=REDACTED; NSC_jou-blbnbj-tupsf-xbt9-mc=REDACTED; EntReg=REDACTED; EntRegEX=REDACTED; TINTCYALF=REDACTED; DYN_USER_ID=REDACTED; DYN_USER_CONFIRM=6REDACTED' -H 'Upgrade-Insecure-Requests: 1' -H 'Pragma: no-cache' -H 'Cache-Control: no-cache' -H 'TE: Trailers'
-```
+`python3 curl2min.py curl 'https://REDACTED/store/myaccount/profile.jsp?selpage=MY+PROFILE' -H 'User-Agent: REDACTED' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' --compressed -H 'Referer: REDACTED' -H 'Connection: keep-alive' -H 'Cookie: o59a9A4Gx=REDACTED; _gcl_au=REDACTED; _ga_3NXP3C8S9V=REDACTED; _ga=REDACTED; _fbp=REDACTED; kampyleUserSession=REDACTED; kampyleSessionPageCounter=REDACTED; kampyleUserSessionsCount=REDACTED; _pin_unauth=REDACTED; _pin_unauth=REDACTED; mab_usps=REDACTED; uspsstaticwebpop=REDACTED; TLTSID=REDACTED; reg-entreg=REDACTED; EntRegName=REDACTED; EntRegPrefs=REDACTED; JSESSIONID=REDACTED; psSessionExpiry=REDACTED; NSC_jou-blbnbj-tupsf-xbt9-mc=REDACTED; EntReg=REDACTED; EntRegEX=REDACTED; TINTCYALF=REDACTED; DYN_USER_ID=REDACTED; DYN_USER_CONFIRM=6REDACTED' -H 'Upgrade-Insecure-Requests: 1' -H 'Pragma: no-cache' -H 'Cache-Control: no-cache' -H 'TE: Trailers'`
 
 ## Minimized curl command
 
 This is what is output to stdout:
 
-```bash
-curl 'https://store.usps.com/store/myaccount/profile.jsp?selpage=MY+PROFILE' -H 'User-Agent: REDACTED' -H 'Cookie: JSESSIONID=REDACTED; NSC_jou-blbnbj-tupsf-xbt9-mc=REDACTED; TINTCYALF=REDACTED'
-```
+`curl 'https://store.usps.com/store/myaccount/profile.jsp?selpage=MY+PROFILE' -H 'User-Agent: REDACTED' -H 'Cookie: JSESSIONID=REDACTED; NSC_jou-blbnbj-tupsf-xbt9-mc=REDACTED; TINTCYALF=REDACTED'`
 
 ## Verbose output
 
@@ -84,6 +78,8 @@ Usage is:
 
 ```
 Usage: curl2min.py [options] curl [curl_arguments]
+
+Strip a curl statement down to it's essential arguments.
 
 Options:
   -h, --help            show this help message and exit

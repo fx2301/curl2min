@@ -8,7 +8,7 @@ import sys
 import typing
 
 parser = OptionParser('usage: %prog [options] curl [curl_arguments]')
-parser.description = 'TODO'
+parser.description = 'Strip a curl statement down to it\'s essential arguments.'
 parser.add_option("-q", "--quiet",
                   action="store_false", dest="verbose", default=True,
                   help="don't print status messages to stdout")
