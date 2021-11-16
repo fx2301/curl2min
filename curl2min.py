@@ -12,7 +12,7 @@ parser.description = 'Strip a curl statement down to it\'s essential arguments.'
 parser.add_option("-q", "--quiet",
                   action="store_false", dest="verbose", default=True,
                   help="don't print status messages to stdout")
-parser.add_option("-s", "--expected-status", dest="expected_status", default=200,
+parser.add_option("-s", "--expected-status", dest="expected_status", default=200, type="int",
                   help="require resulting status code to be STATUS", metavar="STATUS")
 
 try:
