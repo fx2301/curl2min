@@ -134,31 +134,32 @@ if test_minimum != test_run1:
         m = re.match(r'^Cookie: (.*)$', header)
         assert m, f'Expected to extract cookies from header: {header}'
         cookies_undecided += m[1].split('; ')
+    
+    if len(cookies_undecided) > 0:
+        log.write('Verifying cookies disassemble and reassemble...\n')
+        cookie_header = f'Cookie: {"; ".join(cookies_undecided)}'
+        test_cookie_reassemble = execute_curl(arguments_required + [['-H', cookie_header]])
+        if test_cookie_reassemble != test_run1:
+            fail('Cookie disassemble and reassemble assumption failed! A cause of this could be expired cookies.')
 
-    log.write('Verifying cookies disassemble and reassemble...\n')
-    cookie_header = f'Cookie: {"; ".join(cookies_undecided)}'
-    test_cookie_reassemble = execute_curl(arguments_required + [['-H', cookie_header]])
-    if test_cookie_reassemble != test_run1:
-        fail('Cookie disassemble and reassemble assumption failed! A cause of this could be expired cookies.')
+        log.write('Testing with leave one out for cookies...\n')
+        cookies_remaining = []
+        for i in range(len(cookies_undecided)):
+            cookie_header = f'Cookie: {"; ".join(cookies_undecided[:i] + cookies_undecided[i+1:])}'
+            test_leave_one_out = execute_curl(arguments_required + [['-H', cookie_header]])
+            if test_leave_one_out == test_run1:
+                log.write(f'Not required: Cookie: {cookies_undecided[i]}\n')
+            else:
+                log.write(f'Required: Cookie: {cookies_undecided[i]}\n')
+                cookies_remaining.append(cookies_undecided[i])
 
-    log.write('Testing with leave one out for cookies...\n')
-    cookies_remaining = []
-    for i in range(len(cookies_undecided)):
-        cookie_header = f'Cookie: {"; ".join(cookies_undecided[:i] + cookies_undecided[i+1:])}'
-        test_leave_one_out = execute_curl(arguments_required + [['-H', cookie_header]])
-        if test_leave_one_out == test_run1:
-            log.write(f'Not required: Cookie: {cookies_undecided[i]}\n')
-        else:
-            log.write(f'Required: Cookie: {cookies_undecided[i]}\n')
-            cookies_remaining.append(cookies_undecided[i])
-
-    log.write('Verifying leave one out work inferences work in combination for cookies...\n')
-    arguments_required += [
-        ['-H', f'Cookie: {"; ".join(cookies_remaining)}']
-    ]
-    test_leave_all_out = execute_curl(arguments_required)
-    if test_leave_all_out != test_run1:
-        fail('Leave one out assumption for cookies failed! A cause of this could be expired cookies.')
+        log.write('Verifying leave one out work inferences work in combination for cookies...\n')
+        arguments_required += [
+            ['-H', f'Cookie: {"; ".join(cookies_remaining)}']
+        ]
+        test_leave_all_out = execute_curl(arguments_required)
+        if test_leave_all_out != test_run1:
+            fail('Leave one out assumption for cookies failed! A cause of this could be expired cookies.')
 
 log.write('Success!\n')
 log.write('Minimal curl is:\n')
