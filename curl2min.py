@@ -37,7 +37,7 @@ def fail(msg):
     exit(1)
 
 CURL_PAIRED_ARGS = [
-    '-H', '-X', '-d', '--data'
+    '-H', '-X', '-d', '--data', '--data-raw'
 ]
 
 arguments = []
