@@ -1,0 +1,21 @@
+[project]
+name = "curl2min"
+version = "0.0.4"
+authors = [
+  { name="fx2301", email="realfx2301+pypi@gmail.com" },
+]
+description = "Strip a curl statement down to it's essential arguments."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/fx2301/curl2min"
+"Bug Tracker" = "https://github.com/fx2301/curl2min/issues"
+
+[project.scripts]
+curl2min = "curl2min:main"

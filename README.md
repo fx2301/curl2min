@@ -6,6 +6,11 @@ Want to reproduce a request from the browser with the most concise `curl` comman
 
 `curl2min` makes repeated requests to determine which curl parameters have no impact on the response status code and content. This makes it sensitive to request parameters that become invalid (e.g. expiring session cookies) and sites with request-independent dynamic content. The main algorithm is a leave-one-out strategy which assumes that curl parameters do not interact in sophisticated ways (e.g. a site that responds different if both header A and B are absent but responds the same if only header A or header B are absent).
 
+# Install
+
+```bash
+pip install curl2min
+```
 # Example
 
 This is a real-world example of an authenticated request. Which of the 25 cookies and 10 other headers are required for a successful response? It turns out only two of the cookies and one of the other headers are required.
@@ -24,7 +29,7 @@ This is what is output to stdout:
 
 Running curl2min is a matter of appending the curl command as arguments:
 
-```python3 curl2min.py curl ...all the original curl arg bloat same as above...```
+```curl2min curl ...all the original curl arg bloat same as above...```
 
 ## Verbose output
 
@@ -82,7 +87,7 @@ Success!
 Usage is:
 
 ```
-Usage: curl2min.py [options] curl [curl_arguments]
+Usage: curl2min [options] curl [curl_arguments]
 
 Strip a curl statement down to it's essential arguments.
 
